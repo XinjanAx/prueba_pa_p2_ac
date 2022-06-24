@@ -35,16 +35,21 @@ public class PruebaPaP2AcApplication implements CommandLineRunner{
 		p1.setId("1722341788");
 		p1.setNombre("Mike");
 		p1.setApellido("Wasausky");
+		this.propietarioS.nuveoPropietario(p1);
 		
 		
 		Vehiculo v1 = new Vehiculo();
 		v1.setMarca("Mazda");
 		v1.setModelo("m3");
 		v1.setPlaca("PER-8552");
-		v1.setPrecio(new BigDecimal(22000));
+		v1.setPrecio(new BigDecimal(2200000));
+		v1.setTipo("ligero");
+		this.vehiculoS.nuveoVehiculo(v1);
 		
-	
+		
 		this.MatriculaS.crearMatricula(p1.getId(), v1.getPlaca());
+		
+		
 		
 	}
 	

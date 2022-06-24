@@ -1,41 +1,35 @@
 package com.uce.prueba1.repository;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.uce.prueba1.modelo.Matricula;
-import com.uce.prueba1.modelo.Propietario;
-import com.uce.prueba1.modelo.Vehiculo;
+
 
 @Repository
 public class MatriculaRepositoryImpl implements IMatriculaRepository{
 	
+	private Matricula m = new Matricula();
 	@Autowired
-	private Propietario p;
+	private IPropietarioRepository propRepository;
 	@Autowired
-	private Vehiculo v;
+	private IVehiculoRepository vehiculoRepository;
 	
 	@Override
 	public void crearMatricula(String idPropietario,String placa) {
-		p = new Propietario();
-		p.setId(idPropietario);
-		p.setNombre("Mike");
-		p.setApellido("Wasausky");
 		
-		v = new Vehiculo();
-		v.setMarca("Mazda");
-		v.setModelo("m3");
-		v.setPlaca(placa);
-		v.setPrecio(new BigDecimal(22000));
+		m.setPropietario(this.propRepository.buscarPropietario(idPropietario));
+		m.setVeiculo(this.vehiculoRepository.buscarVehiculo(placa));
+		this.m.setFechaIngreso(LocalDateTime.now());
 		
 	} 
 
 	@Override
-	public void buscarMatricula(String idPropietario) {
-		// TODO Auto-generated method stub
-		
+	public Matricula buscarMatricula(String idPropietario,String placa) {
+		System.out.println("Se encontro una Matricula de id: "+ idPropietario +", "+ placa);
+		return m;	
 	}
 
 	@Override

@@ -7,16 +7,19 @@ import com.uce.prueba1.modelo.Vehiculo;
 @Repository
 public class VehiculoRepositoryImpl implements IVehiculoRepository{
 
+	private Vehiculo v = new Vehiculo();
 	@Override
 	public void nuveoVehiculo(Vehiculo v) {
 		// TODO Auto-generated method stub
-		System.out.println("Se agrego un nuevo Vehiculo...");
+		System.out.println("Se agrego un nuevo " + v);
+		this.v=v;
 	}
 
 	@Override
-	public void buscarVehiculo(String placa) {
+	public Vehiculo buscarVehiculo(String placa) {
 		// TODO Auto-generated method stub
 		System.out.println("Se encontro el Vehiculo: "+ placa);
+		return this.v;
 	}
 
 	@Override

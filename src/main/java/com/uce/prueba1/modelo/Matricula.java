@@ -7,11 +7,21 @@ public class Matricula {
 	
 	private LocalDateTime fechaIngreso;
 	private BigDecimal valorMatricula;
+	
 	//
 	private Propietario propietario;
 	private Vehiculo veiculo;
 	
 	
+	
+	
+	@Override
+	public String toString() {
+		return "\nMatricula \nfecha:" + fechaIngreso + ", valor Matricula $" + valorMatricula + "\n	  "
+				+ propietario + "\n	  " + veiculo + "]";
+	}
+	
+	//get set
 	public LocalDateTime getFechaIngreso() {
 		return fechaIngreso;
 	}

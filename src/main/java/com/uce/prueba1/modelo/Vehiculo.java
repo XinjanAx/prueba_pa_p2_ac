@@ -9,7 +9,7 @@ public class Vehiculo {
 		
 	@Override
 	public String toString() {
-		return "Vehiculo marca " + marca + ", modelo " + modelo + ", placa " + placa + ", " + tipo + ", $"
+		return "Vehiculo: marca " + marca + ", modelo " + modelo + ", placa " + placa + ", " + tipo + ", $"
 				+ precio;
 	}
 	//get set
